@@ -1,4 +1,9 @@
-
+/**
+ * Creates a generic object. Methods to get important information of object. 
+ * @author Mario Torres
+ *
+ * @param <T> Generic Type
+ */
 public class HashObject<T> {
 	Object object;
 	private int key;
@@ -26,6 +31,10 @@ public class HashObject<T> {
 		return key;
 	}
 	
+	/**
+	 * Gets the type of our object
+	 * @return object
+	 */
 	public Object getObject() {
 		return object;
 	}
@@ -37,6 +46,9 @@ public class HashObject<T> {
 		this.frequencyCount++;
 	}
 	
+	/**
+	 * Increases the probes of a certain object
+	 */
 	public void increaseObjectProbe() {
 		this.probeCount++;
 	}

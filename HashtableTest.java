@@ -5,6 +5,11 @@ import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Creates and tests our hash table for different data values
+ * @author Mario Torres
+ *
+ */
 public class HashtableTest {
 	
 	private static double loadFactor;
@@ -89,7 +94,12 @@ public class HashtableTest {
 		
 	}
 
-
+	/**
+	 * simulationRandomInts - Simulates two types of hash tables, linear and double using int type of random ints
+	 * @param maxInsert - The number of inputs in the hash table found from using tableSize and the loadFactor
+	 * @param tableSize - The size of the hash table
+	 * @param debug - The debug level of the simulation for output
+	 */
 	private static void simulationRandomInts(int maxInsert, int tableSize, int debug) {
 		LinearProbing<Integer> intLinearTable = new LinearProbing<Integer>(tableSize);
 		DoubleHashing<Integer> intDoubleTable = new DoubleHashing<Integer>(tableSize);
@@ -99,13 +109,13 @@ public class HashtableTest {
 		while (intLinearTable.getTotalInserts() < maxInsert || intDoubleTable.getTotalInserts() < maxInsert) {
 			intRand = rand.nextInt();
 			
-			if (!intLinearTable.isDuplicate(intRand)) {
+			//if (!intLinearTable.isDuplicate(intRand)) {
 				intLinearTable.hashInsert(intRand);
-			}
+			//}
 			
-			if (!intDoubleTable.isDuplicate(intRand)) {
+			//if (!intDoubleTable.isDuplicate(intRand)) {
 				intDoubleTable.hashInsert(intRand);
-			}
+			//}
 		}
 		
 		if (debug == 0) {
@@ -115,49 +125,52 @@ public class HashtableTest {
 	}
 	
 	/**
-	 * Simulates two types of hash tables, linear and double using Long type
+	 * simulationLong - Simulates two types of hash tables, linear and double using Long type of System.nanoTime()
 	 * 
-	 * @param inputNumber is the highest number of inputs in hash table of the
-	 *                    corresponding load factor
-	 * @param tableSize   is the size of the hash table
-	 * @param debug       is the debug level of the simulation output
+	 * @param maxInsert - The number of inputs in hash table found from using tableSize and the loadFactor
+	 * @param tableSize - The size of the hash table
+	 * @param debug - The debug level of the simulation for output
 	 * @throws InterruptedException 
 	 */
-	private static void simulationLong(int inputNumber, int tableSize, int debug) throws InterruptedException {
+	private static void simulationLong(int maxInsert, int tableSize, int debug) throws InterruptedException {
 		// highest time needed in this simulation as so many duplicates
-		LinearProbing<Long> lngLinearTable = new LinearProbing<Long>(tableSize); // creating linear hash table
-		DoubleHashing<Long> lngDoubleTable = new DoubleHashing<Long>(tableSize);
-		Long systemTime;
+		LinearProbing<Long> longLinearTable = new LinearProbing<Long>(tableSize); // creating linear hash table
+		DoubleHashing<Long> longDoubleTable = new DoubleHashing<Long>(tableSize);
+		long systemTime;
 		
-		while (lngLinearTable.getTotalInserts() < inputNumber && lngDoubleTable.getTotalInserts() < inputNumber) {
-			systemTime = System.nanoTime();
+		while (longLinearTable.getTotalInserts() < maxInsert || longDoubleTable.getTotalInserts() < maxInsert) {
+			Thread.sleep(100);
+			systemTime = System.currentTimeMillis();
 			
-			if (!lngLinearTable.isDuplicate(systemTime)) {
-				lngLinearTable.hashInsert(systemTime);
-			}
-			if (!lngDoubleTable.isDuplicate(systemTime)) {
-				lngDoubleTable.hashInsert(systemTime);
-			}
+			//if (!lngLinearTable.isDuplicate(systemTime)) {
+				longLinearTable.hashInsert(systemTime);
+			//}
+			//if (!lngDoubleTable.isDuplicate(systemTime)) {
+				longDoubleTable.hashInsert(systemTime);
+			//}
 		}
 
 		if (debug == 0) {
-			zeroDebug(lngLinearTable, "Linear");
-			zeroDebug(lngDoubleTable, "Double");
+			zeroDebug(longLinearTable, "Linear");
+			zeroDebug(longDoubleTable, "Double");
+		} else if (debug == 1) {
+			oneDebug(longLinearTable, "Linear", tableSize);
+			oneDebug(longDoubleTable, "Double", tableSize);
+		} else if (debug == 2) {
+			twoDebug(longLinearTable, "Linear", tableSize);
+			twoDebug(longDoubleTable, "Double", tableSize);
 		}
 	}
 	
 	/**
-	 * Simulates two types of hash tables, linear and double using String type
+	 * simulationString - Simulates two types of hash tables, linear and double using String type of words from a text file
 	 * 
-	 * @param inputNumber is the highest number of inputs in hash table of the
-	 *                    corresponding load factor
-	 * @param tableSize   is the size of the hash table
-	 * @param debug       is the debug level of the simulation output
+	 * @param maxInsert - The number of inputs in hash table found from using tableSize and the loadFactor
+	 * @param tableSize - The size of the hash table
+	 * @param debug - The debug level of the simulation for output
 	 */
-	private static void simulationString(int inputNumber, int tableSize, int debug) {
-		// medium amount of time needed among the three simulations, as it is a word
-		// list and may have lot of duplicates
-		LinearProbing<String> strLinearTable = new LinearProbing<String>(tableSize); // creating linear hash table
+	private static void simulationString(int maxInsert, int tableSize, int debug) {
+		LinearProbing<String> strLinearTable = new LinearProbing<String>(tableSize);
 		DoubleHashing<String> strDoubleTable = new DoubleHashing<String>(tableSize);
 
 		try {
@@ -168,13 +181,13 @@ public class HashtableTest {
 			while(scan.hasNextLine()) {
 				String word = scan.nextLine();
 
-				if (strLinearTable.getTotalInserts() < inputNumber && strDoubleTable.getTotalInserts() < inputNumber) {
-					if (!strLinearTable.isDuplicate(word)) {
+				if (strLinearTable.getTotalInserts() < maxInsert || strDoubleTable.getTotalInserts() < maxInsert) {
+					//if (!strLinearTable.isDuplicate(word)) {
 						strLinearTable.hashInsert(word);
-					}
-					if (!strDoubleTable.isDuplicate(word)) {
+					//}
+					//if (!strDoubleTable.isDuplicate(word)) {
 						strDoubleTable.hashInsert(word);
-					}
+					//}
 					count++;
 				} else {
 					break;
@@ -185,9 +198,7 @@ public class HashtableTest {
 			if (debug == 0) {
 				zeroDebug(strLinearTable, "Linear");
 				zeroDebug(strDoubleTable, "Double");
-			}
-			
-			if (debug == 1) {
+			} else if (debug == 1) {
 				oneDebug(strLinearTable, "Linear", tableSize);
 				oneDebug(strDoubleTable, "Double", tableSize);
 			}
@@ -201,13 +212,13 @@ public class HashtableTest {
 
 	
 	/**
-	 * Prints a summary of the current simulation
+	 * zeroDebug - Prints a basic summary of the current simulation
 	 * 
-	 * @param hashTable is the hash table
-	 * @param tableType is the type of hashing
+	 * @param hashTable - The hash table
+	 * @param tableType - The type of hashing used in our hash table
 	 */
 	private static <T> void zeroDebug(HashTable<T> hashTable, String tableType) {
-		double probes = ((double) hashTable.getTotalProbes() - hashTable.getTotalDuplicates()) / (double) (hashTable.getTotalInserts());
+		double probes = ((double) hashTable.getTotalProbes()) / (double) (hashTable.getTotalInserts());
 		int totalInput = hashTable.getTotalInserts() + hashTable.getTotalDuplicates();
 		System.out.println("Count: " + count + ", Probes: " + hashTable.getTotalProbes());
 		System.out.println("Using " + tableType + " Hashing...");
@@ -217,16 +228,15 @@ public class HashtableTest {
 	}
 	
 	/**
-	 * Prints a summary of the current simulation in the console and prints a dump
-	 * file of the current simulation of the current hashing
+	 * oneDebug - Prints a summary of the current simulation in the console and prints a dump file of the current simulation for each hashing
 	 * 
-	 * @param hashTable is hash table
-	 * @param tableType is the type of hashing
-	 * @param tableSize is the size of the hash table
+	 * @param hashTable - The hash table
+	 * @param tableType - The type of hashing used in our hash table
+	 * @param tableSize - The size of the hash table
 	 */
 	private static <T> void oneDebug(HashTable<T> hashTable, String tableType, int tableSize) {
 		zeroDebug(hashTable, tableType);
-		String fileName = tableType + "-dump";
+		String fileName = tableType + "-dump.txt";
 
 		PrintWriter out;
 		try {
@@ -244,6 +254,22 @@ public class HashtableTest {
 			System.out.println("Cannot Open file");
 			printUsage();
 			System.exit(1);
+		}
+	}
+	
+	/**
+	 * twoDebug - Prints a detailed summary of the simulation to the console for each object stored in our hash table
+	 *
+	 * @param hashTable - The hash table
+	 * @param tableType - The type of hashing used in our hash table
+	 * @param tableSize - The size of the hash table
+	 */
+	private static <T> void twoDebug(HashTable<T> hashTable, String tableType, int tableSize) {
+		zeroDebug(hashTable, tableType);
+		for (int i = 0; i < tableSize; i++) {
+			if (hashTable.getObject(i) != null) {
+				System.out.println("Table[" + i + "]: " + hashTable.getObject(i).toString());
+			}
 		}
 	}
 
