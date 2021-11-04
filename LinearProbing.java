@@ -18,7 +18,7 @@ public class LinearProbing<T> extends HashTable<T> {
 	 * Returns the index position of our table after implementing a linear probing hash function
 	 */
 	protected int hashFunction(HashObject<T> hashObject, int index) {
-		return positiveMod(hashObject.getKey() + index, getTableSize());
+		return positiveMod((hashObject.getKey().hashCode() + index), getTableSize());
 	}
 
 }

@@ -139,7 +139,7 @@ public class HashtableTest {
 		long systemTime;
 		
 		while (longLinearTable.getTotalInserts() < maxInsert || longDoubleTable.getTotalInserts() < maxInsert) {
-			Thread.sleep(100);
+			Thread.sleep(10);
 			systemTime = System.currentTimeMillis();
 			
 			//if (!lngLinearTable.isDuplicate(systemTime)) {

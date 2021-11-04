@@ -5,8 +5,7 @@
  * @param <T> Generic Type
  */
 public class HashObject<T> {
-	Object object;
-	private int key;
+	private Object key;
 	private int frequencyCount;
 	private int probeCount;
 	
@@ -16,9 +15,8 @@ public class HashObject<T> {
 	 * @param frequencyCount - How many times this object has appeared
 	 * @param probeCount - How many times the object looked for a space in our hashTable
 	 */
-	public HashObject(Object object) {
-		this.object = object;
-		this.key = object.hashCode();
+	public HashObject(Object key) {
+		this.key = key;
 		this.frequencyCount = 0;
 		this.probeCount = 0;
 	}
@@ -27,16 +25,8 @@ public class HashObject<T> {
 	 * Gets and returns the key of our object
 	 * @return key
 	 */
-	public int getKey() {
+	public Object getKey() {
 		return key;
-	}
-	
-	/**
-	 * Gets the type of our object
-	 * @return object
-	 */
-	public Object getObject() {
-		return object;
 	}
 	
 	/**
@@ -57,7 +47,7 @@ public class HashObject<T> {
 	 * Prints information of our Object
 	 */
 	public String toString() {
-		String retVal = this.object + " " + this.frequencyCount + " " + this.probeCount;
+		String retVal = this.key + " " + this.frequencyCount + " " + this.probeCount;
 		return retVal;
 	}
 	
@@ -67,7 +57,7 @@ public class HashObject<T> {
 	 * @return true if keys are the same, false if not
 	 */
 	public boolean equals(HashObject<T> hashObject) {
-		if (this.getObject().equals(hashObject.getObject())) {
+		if (this.getKey().equals(hashObject.getKey())) {
 			return true;
 		} else {
 			return false;
