@@ -39,7 +39,7 @@ This program takes in command line arguments to be run successfully.
 The user should input an input type, load factor, and an optional
 debug level.
 
-java HashtableTest [<input type>] [<load factor>] [<debug level>]
+java HashtableTest \<input type\> \<load factor\> \[\<debug level\>\]  
     input type = 1 for random numbers, 2 for system time, 3 for word list
     debug = 0 ==> print summary of experiment
     debug = 1 ==> save the two hash tables to a file at the end
