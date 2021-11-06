@@ -11,6 +11,7 @@ public class TwinPrimeGenerator {
 	
 	/**
 	 * isPrime - checks to see if a number is prime
+	 * 
 	 * @param number - number to be checked if prime
 	 * @return true if number is prime, false if not
 	 */
@@ -34,6 +35,7 @@ public class TwinPrimeGenerator {
 	/**
 	 * getTwinPrime - Finds twin prime numbers within a given range of numbers. If no twin primes found,
 	 * 		returns 0
+	 * 
 	 * @param start - beginning value of range
 	 * @param end - end value of range
 	 * @return the second of the twin prime values if a twin prime is found, 0 if no twin prime found

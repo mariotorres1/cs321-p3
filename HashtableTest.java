@@ -6,16 +6,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Creates and tests our hash table using different data values
+ * File: HashtableTest.java
  * @author Mario Torres
- *
+ * Date: October 25, 2021
+ * Description: Creates and tests our HashTable.java class using different data values
  */
 public class HashtableTest {
 
 	// Variable used outside and inside of main
 	private static double loadFactor;
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, HashTableOverflowException {
 		// Variables for main
 		int tableSize;
 		TwinPrimeGenerator primeNumber = new TwinPrimeGenerator();
@@ -90,7 +91,8 @@ public class HashtableTest {
 	}
 
 	/**
-	 * generalPrint - Print that should be printed everytime the program is run
+	 * generalPrint - Print that should be printed every time the program is run
+	 * 
 	 * @param data - A string of the data type being run in the simulation
 	 * @param tableSize - The size of the hash table
 	 */
@@ -114,11 +116,13 @@ public class HashtableTest {
 
 	/**
 	 * simulationRandomInts - Simulates two types of hash tables, linear and double using int type of random ints
+	 * 
 	 * @param maxInsert - The number of inputs in the hash table found from using tableSize and the loadFactor
 	 * @param tableSize - The size of the hash table
 	 * @param debug - The debug level of the simulation for output
+	 * @throws HashTableOverflowException 
 	 */
-	private static void simulationRandomInts(int maxInsert, int tableSize, int debug) {
+	private static void simulationRandomInts(int maxInsert, int tableSize, int debug) throws HashTableOverflowException {
 		// Two hash tables created, one for linear probing and one for double hashing
 		LinearProbing<Integer> intLinearTable = new LinearProbing<>(tableSize);
 		DoubleHashing<Integer> intDoubleTable = new DoubleHashing<>(tableSize);
@@ -160,8 +164,9 @@ public class HashtableTest {
 	 * @param maxInsert - The number of inputs in hash table found from using tableSize and the loadFactor
 	 * @param tableSize - The size of the hash table
 	 * @param debug - The debug level of the simulation for output
+	 * @throws HashTableOverflowException 
 	 */
-	private static void simulationLong(int maxInsert, int tableSize, int debug) {
+	private static void simulationLong(int maxInsert, int tableSize, int debug) throws HashTableOverflowException {
 		// Two hash tables created, one for linear probing and one for double hashing
 		LinearProbing<Long> longLinearTable = new LinearProbing<>(tableSize); // creating linear hash table
 		DoubleHashing<Long> longDoubleTable = new DoubleHashing<>(tableSize);
@@ -201,8 +206,9 @@ public class HashtableTest {
 	 * @param maxInsert - The number of inputs in hash table found from using tableSize and the loadFactor
 	 * @param tableSize - The size of the hash table
 	 * @param debug - The debug level of the simulation for output
+	 * @throws HashTableOverflowException 
 	 */
-	private static void simulationString(int maxInsert, int tableSize, int debug) {
+	private static void simulationString(int maxInsert, int tableSize, int debug) throws HashTableOverflowException {
 		// Two hash tables created, one for linear probing and one for double hashing
 		LinearProbing<String> strLinearTable = new LinearProbing<>(tableSize);
 		DoubleHashing<String> strDoubleTable = new DoubleHashing<>(tableSize);

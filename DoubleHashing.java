@@ -1,13 +1,15 @@
 /**
- * Creates the hash function for double hashing of hash table
+ * File: DoubleHashing.java
  * @author Mario Torres
- *
+ * Date: October 25, 2021
+ * Description: Creates the hash function for double hashing for a hash table
  * @param <T> Generic Type
  */
 public class DoubleHashing<T> extends HashTable<T> {
 	
 	/**
-	 * Hash table created using double hashing 
+	 * Hash table created using double hashing
+	 *  
 	 * @param tableSize
 	 */
 	public DoubleHashing(int tableSize) {
@@ -16,6 +18,7 @@ public class DoubleHashing<T> extends HashTable<T> {
 	
 	/**
 	 * primaryHash - Returns the primary hash of the double hashing hash function
+	 * 
 	 * @param hashObject - Object used to retrieve hashCode used
 	 * @return int location of the primary hash
 	 */
@@ -25,6 +28,7 @@ public class DoubleHashing<T> extends HashTable<T> {
 	
 	/**
 	 * secondaryHash - Returns the secondary hash of the double hashing hash function
+	 * 
 	 * @param hashObject - Object used to retrieve hashCode used
 	 * @return int location of the secondary hash
 	 */

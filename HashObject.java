@@ -1,7 +1,8 @@
 /**
- * Creates a generic object. Methods to get important information of object. 
+ * File: HashObject.java
  * @author Mario Torres
- *
+ * Date: October 25, 2021
+ * Description: Creates a generic object. Methods to get information about the object created
  * @param <T> Generic Type
  */
 public class HashObject<T> {

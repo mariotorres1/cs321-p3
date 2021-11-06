@@ -1,7 +1,8 @@
 /**
- * Creates the hash function for linear probing of hash tables
+ * File: LinearProbing.java
  * @author Mario Torres
- *
+ * Date: October 25, 2021
+ * Description: Creates the hash function for linear probing for a hash table
  * @param <T> Generic Type
  */
 public class LinearProbing<T> extends HashTable<T> {

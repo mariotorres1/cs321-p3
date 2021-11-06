@@ -1,9 +1,10 @@
 import java.util.Arrays;
 
 /**
- * Creates a generic type hash table. Methods to get information about our hash table.
+ * File: HashTable.java
  * @author Mario Torres
- *
+ * Date: October 25. 2021
+ * Description: Creates a generic type hash table. Methods to get information about the hash table created
  * @param <T> Generic Type
  */
 public abstract class HashTable<T> {
@@ -27,6 +28,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * getTableSize - Gets the table size of our hash table
+	 * 
 	 * @return tableSize
 	 */
 	public int getTableSize() {
@@ -35,6 +37,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * getTotalProbes - Gets the total probes of our hash table
+	 * 
 	 * @return totalProbes
 	 */
 	public int getTotalProbes() {
@@ -43,6 +46,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * getTotalInserts - Gets the total inserts to our hash table
+	 * 
 	 * @return totalInserts
 	 */
 	public int getTotalInserts() {
@@ -51,6 +55,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * getTotalDuplicates - Gets the total duplicates in our hash table
+	 * 
 	 * @return totalDuplicates
 	 */
 	public int getTotalDuplicates() {
@@ -59,6 +64,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * getHashTable - gets the hash table
+	 * 
 	 * @return hashTable
 	 */
 	public HashObject<T>[] getHashTable() {
@@ -67,6 +73,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * getObject - Gets the object at a specific index location in our hash table
+	 * 
 	 * @param index - location of object in our hash table
 	 * @return object in our hash table a location of index
 	 */
@@ -76,6 +83,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * isEmpty - Tells us if our hash table is empty or not
+	 * 
 	 * @return true if nothing has been inserted into our table, false otherwise
 	 */
 	public boolean isEmpty() {
@@ -91,6 +99,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * positiveMod - Makes sure the key value is always positive
+	 * 
 	 * @param dividend - k value of k mod m
 	 * @param divisor - m value of k mod m
 	 * @return A positive value if our key is negative
@@ -106,6 +115,7 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * hashFunction - Method prototype to be used in child classes to get specific hash function for each child 
+	 * 
 	 * @param hashObject - Object information used to be stored/retrieved/found in our hash table
 	 * @param index - position used in our hash function 
 	 * @return a position in our hash table to attempt to store/retrieve/find object in our hash table
@@ -114,9 +124,11 @@ public abstract class HashTable<T> {
 	
 	/**
 	 * hashInsert - Inserts an object into our hash table 
+	 * 
 	 * @param object - Data to be stored into our hash table
+	 * @throws HashTableOverflowException 
 	 */
-	public void hashInsert(T object) {
+	public void hashInsert(T object) throws HashTableOverflowException {
 		HashObject<T> hashObject = new HashObject<>(object);
 		int i = 0;
 		int count = 0;
@@ -140,5 +152,6 @@ public abstract class HashTable<T> {
 				count++;
 			}
 		}
+		throw new HashTableOverflowException("Error: Hash table overflow!");
 	}
 }
