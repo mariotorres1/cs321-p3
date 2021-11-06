@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public abstract class HashTable<T> {
 	protected HashObject<T>[] hashTable;
-	private int tableSize;
+	protected int tableSize;
 	protected int totalProbes;
 	protected int totalInserts;
 	protected int totalDuplicates;
@@ -117,16 +117,17 @@ public abstract class HashTable<T> {
 	 * @param object - Data to be stored into our hash table
 	 */
 	public void hashInsert(T object) {
-		HashObject<T> hashObject = new HashObject<T>(object);
+		HashObject<T> hashObject = new HashObject<>(object);
 		int i = 0;
 		int count = 0;
 		while (i != tableSize) {
 			int j = hashFunction(hashObject, i);
 			hashObject.increaseObjectProbe();
-			count++;
+			//count++;
 			if (hashTable[j] == null) {
 				hashTable[j] = hashObject;
 				totalInserts++;
+				count++;
 				totalProbes  += count;
 				return;
 			} else {
@@ -136,32 +137,8 @@ public abstract class HashTable<T> {
 					return;
 				}
 				i++;
+				count++;
 			}
 		}
 	}
-	
-	/**
-	 * isDuplicate - Looks to see if our object is already in our hash table
-	 * @param object - Data to compare against while looking in our hash table
-	 * @return true if object is already in our table, false otherwise 
-	 */
-//	public boolean isDuplicate(T object) {
-//		HashObject<T> hashObject = new HashObject<T>(object);
-//		int i = 0;
-//		while (i != tableSize) {
-//			int j = hashFunction(hashObject, i);
-//			if (hashTable[j] == null) {
-//				return false;
-//			}
-//			else if (hashTable[j].equals(hashObject)) {
-//				totalDuplicates++;
-//				totalProbes++;
-//				hashTable[j].increaseFrequency();
-//				return true;
-//			} else {
-//				i++;
-//			}
-//		}
-//		return false;
-//	}
 }
