@@ -39,11 +39,12 @@ This program takes in command line arguments to be run successfully.
 The user should input an input type, load factor, and an optional
 debug level.
 
-java HashtableTest <input type> <load factor> [<debug level>]
-    input type = 1 for random numbers, 2 for system time, 3 for word list
-    debug = 0 ==> print summary of experiment
-    debug = 1 ==> save the two hash tables to a file at the end
-    debug = 2 ==> print debugging output for each insert
+Usage: java HashtableTest \<input type\> \<load factor\> \[\<debug level\>\]  
+  
+    input type = 1 for random numbers, 2 for system time, 3 for word list  
+    debug = 0 ==> print summary of experiment  
+    debug = 1 ==> save the two hash tables to a file at the end  
+    debug = 2 ==> print debugging output for each insert  
 
 ## Results 
 
@@ -63,30 +64,30 @@ Input source 1: random number
 
 Input source 2: current time
 
-alpha   linear   double
-------------------------------
-0.5     1.0      1.0
-0.6     1.0      1.0
-0.7     1.0      1.0
-0.8     1.0      1.0
-0.9     1.0      1.0
-0.95    1.0      1.0
-0.98    1.0      1.0
-0.99    1.0      1.0
+|alpha  |  linear  |  double  |
+|-------|----------|----------|
+|0.5    | 1.0      | 1.0      |
+|0.6    | 1.0      | 1.0      |
+|0.7    | 1.0      | 1.0      |
+|0.8    | 1.0      | 1.0      |
+|0.9    | 1.0      | 1.0      |
+|0.95   | 1.0      | 1.0      |
+|0.98   | 1.0      | 1.0      |
+|0.99   | 1.0      | 1.0      |
 
 
 Input source 3: word-list
 
-alpha   linear   double
-------------------------------
-0.5     1.597    1.390
-0.6     2.149    1.534
-0.7     3.604    1.721
-0.8     6.708    2.016
-0.9     19.815   2.569
-0.95    110.594  3.186
-0.98    324.206  4.020
-0.99    471.671  4.696
+|alpha  |  linear  |  double  |
+|-------|----------|----------|
+|0.5    | 1.597    | 1.390    |
+|0.6    | 2.149    | 1.534    |
+|0.7    | 3.604    | 1.721    |
+|0.8    | 6.708    | 2.016    |
+|0.9    | 19.815   | 2.569    |
+|0.95   | 110.594  | 3.186    |
+|0.98   | 324.206  | 4.020    |
+|0.99   | 471.671  | 4.696    |
 
 ## Sources used
 
@@ -102,4 +103,4 @@ everything inside of main. I ended up going with the creating private
 methods approach similar to my Project 1 so I also referenced that 
 assignment as well. 
 
-----------
+------------------------------------------------------------------------
