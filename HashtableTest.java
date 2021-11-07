@@ -97,9 +97,9 @@ public class HashtableTest {
 	 * @param tableSize - The size of the hash table
 	 */
 	private static void generalPrint(String data, int tableSize) {
-		System.out.println("\nTwin prime table size found in the range[95500 .. 96000]: " + tableSize);
+		System.out.println( "\nHashtableTest: Twin prime table size found in the range[95500 .. 96000]: " + tableSize);
 		System.out.println();
-		System.out.println("Data source type " + data);
+		System.out.println("HashtableTest: Data source type " + data);
 		System.out.println();
 	}
 
@@ -271,10 +271,10 @@ public class HashtableTest {
 		// Variable to get total inserts and duplicates for hash table
 		int totalInput = hashTable.getTotalInserts() + hashTable.getTotalDuplicates();
 		// Prints basic information about hash table
-		System.out.println("Using " + tableType + " Hashing...");
-		System.out.print("Input " + totalInput + " elements");
+		System.out.println("HashtableTest: Using " + tableType + " Hashing...");
+		System.out.print("HashtableTest: Input " + totalInput + " elements");
 		System.out.println(" , of which " + hashTable.getTotalDuplicates() + " are duplicates");
-		System.out.println("Load Factor = " + loadFactor + ", Avg. no. of probes " + probes + "\n");
+		System.out.println("HashtableTest: Load Factor = " + loadFactor + ", Avg. no. of probes " + probes + "\n");
 	}
 	
 	/**
@@ -322,7 +322,7 @@ public class HashtableTest {
 		// Loops through table printing each objects location in table, and important information about each object
 		for (int i = 0; i < tableSize; i++) {
 			if (hashTable.getObject(i) != null) {
-				System.out.println("Table[" + i + "]: Object Key: " + hashTable.getObject(i).getKey() +
+				System.out.println("HashtableTest: Table[" + i + "]: Object Key: " + hashTable.getObject(i).getKey() +
 						", Frequency: " + hashTable.getObject(i).getFrequencyCount() + ", Probe Count: " + hashTable.getObject(i).getProbeCount());
 			}
 		}
