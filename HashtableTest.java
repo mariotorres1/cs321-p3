@@ -187,16 +187,16 @@ public class HashtableTest {
 		// If debug level is zero
 		if (debug == 0) {
 			// Prints debug information for linear probing hash table and double hashing hash table
-			zeroDebug(longLinearTable, "Linear");
-			zeroDebug(longDoubleTable, "Double");
+			zeroDebug(longLinearTable, "linear");
+			zeroDebug(longDoubleTable, "double");
 		} else if (debug == 1) { // If debug level is one
 			// Prints debug information for linear probing hash table and double hashing hash table
-			oneDebug(longLinearTable, "Linear", tableSize);
-			oneDebug(longDoubleTable, "Double", tableSize);
+			oneDebug(longLinearTable, "linear", tableSize);
+			oneDebug(longDoubleTable, "double", tableSize);
 		} else if (debug == 2) { // If debug level is two
 			// Prints debug information for linear probing hash table and double hashing hash table
-			twoDebug(longLinearTable, "Linear", tableSize);
-			twoDebug(longDoubleTable, "Double", tableSize);
+			twoDebug(longLinearTable, "linear", tableSize);
+			twoDebug(longDoubleTable, "double", tableSize);
 		}
 	}
 	
@@ -239,12 +239,12 @@ public class HashtableTest {
 			// If debug level is zero
 			if (debug == 0) {
 				// Prints debug information for linear probing hash table and double hashing hash table
-				zeroDebug(strLinearTable, "Linear");
-				zeroDebug(strDoubleTable, "Double");
+				zeroDebug(strLinearTable, "linear");
+				zeroDebug(strDoubleTable, "double");
 			} else if (debug == 1) { // If debug level is one
 				// Prints debug information for linear probing hash table and double hashing hash table
-				oneDebug(strLinearTable, "Linear", tableSize);
-				oneDebug(strDoubleTable, "Double", tableSize);
+				oneDebug(strLinearTable, "linear", tableSize);
+				oneDebug(strDoubleTable, "double", tableSize);
 			} else if (debug == 2) { // If debug level is two
 				// Prints debug information for linear probing hash table and double hashing hash table
 				twoDebug(strLinearTable, "linear", tableSize);
